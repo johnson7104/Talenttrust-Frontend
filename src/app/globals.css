@@ -1123,3 +1123,29 @@ button:focus-visible, input:focus-visible, a:focus-visible, summary:focus-visibl
 .create-mode { border: 0; padding: 0; margin: 0 0 10px; display: flex; flex-wrap: wrap; gap: 6px 16px; align-items: center; }
 .create-mode > legend { font-weight: 600; font-size: 0.9rem; padding: 0; margin-bottom: 4px; }
 .create-mode label { display: inline-flex; align-items: center; gap: 6px; cursor: pointer; }
+/* ── On-chain activity feed ──────────────────────────────────────────────── */
+.activity-head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 4px 16px; margin-bottom: 14px; }
+.activity-head h3 { margin: 0; font-size: 1.08rem; }
+.activity-sub { color: var(--muted); font-size: 0.85rem; }
+.activity-list, .activity-skeleton { list-style: none; margin: 0; padding: 0; }
+.activity-item { padding: 12px 10px; margin: 0 -10px; border-radius: 10px; border-top: 1px solid var(--border); }
+.activity-item:first-child { border-top: none; }
+.card .activity-sentence { margin: 0 0 4px; color: var(--text); overflow-wrap: anywhere; }
+.card .activity-meta { margin: 0; color: var(--muted); font-size: 0.85rem; }
+.activity-meta a { font-weight: 500; border-radius: 4px; }
+.activity-meta a:focus-visible { outline: 2px solid var(--brand); outline-offset: 2px; }
+.card .activity-empty { margin: 0; padding: 12px 0; color: var(--muted); }
+.activity-error { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px 16px; padding: 12px 14px; border: 1px solid var(--bad); border-radius: 10px; background: color-mix(in srgb, var(--bad) 8%, transparent); }
+.card .activity-error p { margin: 0; color: var(--text); flex: 1 1 200px; }
+.activity-error-inline { margin-bottom: 10px; }
+.activity-skeleton li { display: grid; gap: 8px; padding: 12px 0; border-top: 1px solid var(--border); }
+.activity-skeleton li:first-child { border-top: none; }
+.activity-skeleton-line { display: block; height: 12px; width: 85%; border-radius: 6px; background: var(--border); animation: skeletonPulse 1.4s ease-in-out infinite; }
+.activity-skeleton-line.short { width: 40%; }
+.activity-new { animation: activityIn 2s ease-out; }
+@keyframes skeletonPulse { 50% { opacity: 0.45; } }
+@keyframes activityIn { from { background: color-mix(in srgb, var(--brand) 18%, transparent); } to { background: transparent; } }
+@media (prefers-reduced-motion: reduce) {
+  .activity-skeleton-line, .activity-new { animation: none; }
+}
+.activity-container { margin-top: 28px; }
